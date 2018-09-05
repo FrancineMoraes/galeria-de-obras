@@ -18,6 +18,7 @@ class CreateContatosTable extends Migration
             $table->String('nome');
             $table->String('email');
             $table->String('texto');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

@@ -129,8 +129,26 @@ return [
                         ],
                     ],
                  ],
-                    ],
+                ],
             ],
+
+            [
+                'text'    => 'Contato',
+                'icon'    => 'far fa-envelope',
+                'submenu' => [
+                    [
+                        'text'    => 'Contato',
+                        'icon'     => 'far fa-envelope-open',
+                        'submenu' => [
+                            [
+                                'text' => 'Listar',
+                                'url'  => '/admin/contato',
+                                'icon' => 'fas fa-list',
+                            ],
+                        ],
+                     ],
+                    ],
+                ],
         ],
 
     /*

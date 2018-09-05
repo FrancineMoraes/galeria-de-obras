@@ -28,6 +28,12 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => 'auth'], 
 	Route::post('galeria/update/{id}', ['as' => 'admin.galeria.update', 'uses' => 'GaleriaController@update']);
 	Route::get('galeria/destroy/{id}', ['as' => 'admin.galeria.destroy', 'uses' => 'GaleriaController@destroy']);
 
+    Route::get('contato', ['as' => 'admin.formulario.index', 'uses' => 'ContatoController@index']);
+    Route::post('contato/store', ['as' => 'admin.formulario.store', 'uses' => 'ContatoController@store']);
+	Route::get('contato/create', ['as' => 'admin.formulario.create', 'uses' => 'ContatoController@create']);
+	Route::get('contato/edit/{id}', ['as' => 'admin.formulario.edit', 'uses' => 'ContatoController@edit']);
+	Route::post('contato/update/{id}', ['as' => 'admin.formulario.update', 'uses' => 'ContatoController@update']);
+	Route::get('contato/destroy/{id}', ['as' => 'admin.formulario.destroy', 'uses' => 'ContatoController@destroy']);
 });
 
 

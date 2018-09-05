@@ -17,7 +17,7 @@ class CreateObrasTable extends Migration
             $table->increments('id');
             $table->String('titulo');
             $table->String('descricao');
-            
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

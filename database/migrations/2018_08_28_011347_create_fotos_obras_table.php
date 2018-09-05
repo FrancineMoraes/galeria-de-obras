@@ -20,6 +20,7 @@ class CreateFotosObrasTable extends Migration
             $table->integer('obra_id')->unsigned();
             $table->foreign('obra_id')->references('id')->on('obras');
 
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

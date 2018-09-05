@@ -17,7 +17,9 @@ class GaleriaController extends Controller
      */
     public function index()
     {
-        $obras = Obra::with('fotoObra')->get();
+        $obras = Obra::with('fotoObra')
+        ->where('status', 1)
+        ->get();
 
         return view('admin.galeria.index', compact('obras'));
     }
@@ -41,7 +43,6 @@ class GaleriaController extends Controller
     public function store(Request $request)
     {
         //cadastra obra
-        //dd($request);
         $obra = new Obra();
         $obra->titulo = $request->titulo;
         $obra->descricao = $request->descricao;
@@ -66,8 +67,8 @@ class GaleriaController extends Controller
 
         return redirect()
             ->route('admin.galeria.index')
-            ->with('status', 'sucess')
-            ->with('retortitulonsagem', 'obra cadastrado com sucesso');
+            ->with('status', 'success')
+            ->with('retornomensagem', 'Obra cadastrada com sucesso');
 
     }
 
@@ -105,7 +106,7 @@ class GaleriaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $obra = Obra::with('fotoObra')->with('empresa')->findOrFail($id);
+        $obra = Obra::with('fotoObra')->findOrFail($id);
 
         $obra->nome = $request->nome;
         $obra->descricao = $request->descricao;
@@ -137,7 +138,7 @@ class GaleriaController extends Controller
         return redirect()
             ->route('manager.obra.index')
             ->with('status', 'success')
-            ->with('retornomensagem', 'obra alterado com sucesso');
+            ->with('retornomensagem', 'Obra alterada com sucesso');
 
     }
 
@@ -151,6 +152,13 @@ class GaleriaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $obra = Obra::with('fotoObra')->findOrFail($id);
+        $obra->status = 3;
+        $obra->update();
+
+        return redirect()
+            ->route('manager.obra.index')
+            ->with('status', 'success')
+            ->with('retornomensagem', 'Obra excluída com sucesso');
     }
 }
