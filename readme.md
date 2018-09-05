@@ -1,7 +1,3 @@
-Galeria de Obras
-
-https://travis-ci.org/FrancineMoraes/galeria-de-obras.svg?branch=master
-
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
