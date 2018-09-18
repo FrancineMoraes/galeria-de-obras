@@ -38,8 +38,8 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => 'auth'], 
 
 
 Route::group(['namespace' => 'Site'], function() {
-    Route::get('carrossite', 'CarroController@index')
-        ->name('carrossite.index');
+    Route::get('galeria-de-obras', 'GaleriaController@index')
+        ->name('site.galeria.index');
 
     Route::get('/', 'CarroController@viewdestaque')
         ->name('carrossite.viewdestaque');
@@ -55,20 +55,3 @@ Route::group(['namespace' => 'Site'], function() {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/promocao', 'EmailControler@enviaEmail');
-
-Route::get('/carros/{id?}', 'CarroController@ws');
-
-Route::get('/xml/{id?}', 'CarroController@wsxml');
-
-Route::get('/lista/{preco?}', 'CarroController@lista');
-
-Route::get('/rel', function(){
-    $pdf = App::make('dompdf.wrapper');
-    $pdf->loadHTML('<h1>Test</h1>');
-    return $pdf->stream();
-});
-
-Route::get('/relcarros', 'CarroController@relcarros');
