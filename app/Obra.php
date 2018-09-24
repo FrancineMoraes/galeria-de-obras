@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Obra extends Model
 {
-    protected $fillable = ['titulo', 'descricao', 'foto_id'];
+    protected $fillable = ['titulo', 'descricao'];
 
     public function fotoObra(){
         return $this->hasOne('App\Foto');

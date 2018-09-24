@@ -1,0 +1,74 @@
+#topo{
+    text-align: center;
+    margin-top: 3%;
+}
+
+#save{
+    margin-bottom: 6%;
+}
+
+.titulo{
+    font-size: 5em;
+}
+
+.sub{
+    font-size: 3em;
+}
+
+.hh3{
+    font-size: 3em;
+}
+
+#save{
+    font-size: 1.3em;
+}
+
+.text{
+    font-size: 1.5em;
+}
+
+*{
+    color:black;
+    font-family: 'Wire One', sans-serif;
+    font-size: 1em;
+}
+
+#linha-vertical {
+    height: 500px;/*Altura da linha*/
+    border-left: 1px solid;/* Adiciona borda esquerda na div como ser fosse uma linha.*/
+    color: black;
+}
+
+hr{
+    color:black;
+    background-color: black;
+    height: 2px;
+}
+
+#hr{
+    display: none;
+}
+
+
+@media only screen and (max-width: 770px) {
+    #linha-vertical {
+        display: none;
+    }
+
+    #hr{
+        display: block;
+    }
+}
+
+
+#image{
+    width: 190px;
+    height: 190px;
+    filter: grayscale(100%);
+}
+#image:hover{
+    filter: grayscale(0%);
+    transition: .5s all ease-in-out;
+}
+
+

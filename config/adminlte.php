@@ -148,7 +148,27 @@ return [
                         ],
                      ],
                     ],
-                ],
+            ],
+
+            [
+                'text'    => 'Administração',
+                'icon'    => 'fas fa-briefcase',
+                'submenu' => [
+                    [
+                        'text'    => 'Configurações',
+                        'icon'     => 'fas fa-cogs',
+                        'submenu' => [
+                            [
+                                'text' => 'Ver',
+                                'url'  => '/admin/config',
+                                'icon' => 'far fa-cog',
+                            ],
+                        ],
+                     ],
+                    ],
+            ],
+
+
         ],
 
     /*

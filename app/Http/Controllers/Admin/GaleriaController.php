@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
 
 use App\Obra;
 use App\Foto;
@@ -107,26 +108,22 @@ class GaleriaController extends Controller
     public function update(Request $request, $id)
     {
         $obra = Obra::with('fotoObra')->findOrFail($id);
-
-        $obra->nome = $request->nome;
+        $obra->titulo = $request->titulo;
         $obra->descricao = $request->descricao;
-        $obra->empresa_id = $request->empresa_id;
-        
-
         $update = $obra->update();
 
+        
         if($update)
         {
-            $imagemobra = $obra->imagemobra;
-
-            if ($request->hasFile('nome_imagem') 
-            && 
-            $request->file('nome_imagem')->isValid()) 
+            $imagemobra = $obra->fotoObra;
+            if ($request->hasFile('caminho')) 
             {
-                $path = $request->file('nome_imagem')->store('obras', 'public');
+                Storage::delete('obras/'.$request->caminho);                
+
+                $path = $request->file('caminho')->store('obras', 'public');
 
                 $imagemobra->each(function ($imagemobra) use ($path) {
-                    $imagemobra->nome_imagem = $path;
+                    $imagemobra->caminho = $path;
                     $imagemobra->save();
 
                 });
@@ -136,9 +133,9 @@ class GaleriaController extends Controller
         }
 
         return redirect()
-            ->route('manager.obra.index')
+            ->route('admin.galeria.index')
             ->with('status', 'success')
-            ->with('retornomensagem', 'Obra alterada com sucesso');
+            ->with('retornomensagem', 'COnfigurações alteradas com sucesso');
 
     }
 

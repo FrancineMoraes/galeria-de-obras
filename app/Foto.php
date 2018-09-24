@@ -8,7 +8,7 @@ class Foto extends Model
 {
     protected $table = 'fotos_obras';
 
-    protected $fillable = ['caminho'];
+    protected $fillable = ['caminho', 'obra_id'];
 
     public function obra(){
         return $this->belongsTo('App\Obra');

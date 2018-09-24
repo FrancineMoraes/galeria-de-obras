@@ -9,10 +9,10 @@
 @section('content')
 <section class="content-header">
     <h1>
-        <i class="far fa-image"></i> Obras
+        <i class="far fa-image"></i> Configurações
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="far fa-image"></i> Obras </a></li>
+        <li><a href="#"><i class="far fa-cog"></i> Configurações </a></li>
         <li class="active">Novo</li>
     </ol>
 </section>
@@ -38,35 +38,41 @@
                 </ul>
             @endif
 
-            <form action="{{route('admin.galeria.update', $obra->id)}}" method="post" 
+            <form action="{{route('admin.config.update', $config->id)}}" method="post" 
             enctype="multipart/form-data">
                 {{ csrf_field() }}
 
-                <div class="col-md-3">
+                <div class="col-md-6">
                     <div class="form-group">
                         <label for="idtitulo"> Título </label>
-                        <input type="text" id="idtitulo" required name="titulo" value="{{$obra->titulo}}" class="form-control">
+                        <input type="text" id="idtitulo" required name="titulo" value="{{$config->titulo}}" class="form-control">
                     </div>
                 </div>
 
-                <div class="col-sm-4">
-                    <div class="box-body">
-                            <div class="form-group">
-                                <label for="caminho">Imagem da Obra</label>
-                                <input type="file" id="caminho" name="caminho">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="form-group">
-                        <label for="iddescricao"> Descrição </label>
-                        <br>
-                    <textarea rows="4" cols="40" id="iddescricao" name="descricao">{{$obra->descricao}}</textarea>
+                        <label for="idsub"> Subtítulo </label>
+                        <input type="text" id="idsub" required name="sub" value="{{$config->sub}}" class="form-control">
                     </div>
                 </div>
-            
+
+                
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="idbiografia"> Biografia </label>
+                        <br>
+                    <textarea id="idbiografia" name="biografia">{{$config->biografia}}</textarea>
+                    </div>
+                </div>
+                
+                <style>
+                textarea {
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                
+                    width: 100%;
+                }</style>
                 <div class="box-footer">
                     <div class="box-tools pull-right">
                         <a class="btn btn-app btn-flat" href="">

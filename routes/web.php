@@ -21,6 +21,10 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => 'auth'], 
        return view('admin.index'); 
     });
    
+    Route::get('config', ['as' => 'admin.config.index', 'uses' => 'ConfigController@index']);
+    Route::get('config/edit/{id}', ['as' => 'admin.config.edit', 'uses' => 'ConfigController@edit']);
+	Route::post('config/update/{id}', ['as' => 'admin.config.update', 'uses' => 'ConfigController@update']);
+
 	Route::get('galeria', ['as' => 'admin.galeria.index', 'uses' => 'GaleriaController@index']);
 	Route::post('galeria/store', ['as' => 'admin.galeria.store', 'uses' => 'GaleriaController@store']);
 	Route::get('galeria/create', ['as' => 'admin.galeria.create', 'uses' => 'GaleriaController@create']);
@@ -41,16 +45,9 @@ Route::group(['namespace' => 'Site'], function() {
     Route::get('galeria-de-obras', 'GaleriaController@index')
         ->name('site.galeria.index');
 
-    Route::get('/', 'CarroController@viewdestaque')
-        ->name('carrossite.viewdestaque');
-
-    Route::any('/pesquisa', 'CarroController@pesquisar')
-        ->name('pesquisa');
-
-    Route::get('/proposta/{id}', 'CarroController@propostaIndex')
-        ->name('proposta');
-
-    Route::resource('propostas', 'PropostaController');
+    Route::post('galeria-de-obras', 'GaleriaController@store')
+        ->name('site.galeria.store');
+    
 });
 
 Auth::routes();
