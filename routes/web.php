@@ -15,7 +15,7 @@ Route::get('/', 'Site\GaleriaController@index');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => 'auth'], function() {
    
-    Route::get('/home', function() { 
+    Route::get('/', function() { 
        return view('admin.index'); 
     });
    
