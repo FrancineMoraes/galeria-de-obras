@@ -15,7 +15,10 @@ Route::get('/', 'Site\GaleriaController@index');
 
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware' => 'auth'], function() {
    
-
+    Route::get('/home', function() { 
+       return view('admin.index'); 
+    });
+   
     Route::get('config', ['as' => 'admin.config.index', 'uses' => 'ConfigController@index']);
     Route::get('config/edit/{id}', ['as' => 'admin.config.edit', 'uses' => 'ConfigController@edit']);
 	Route::post('config/update/{id}', ['as' => 'admin.config.update', 'uses' => 'ConfigController@update']);
