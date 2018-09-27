@@ -64,7 +64,7 @@
                     <div class="form-group">
                         <label for="iddescricao"> Descrição </label>
                         <br>
-                        <textarea rows="4" cols="40" id="iddescricao" name="descricao"></textarea>
+                        <textarea rows="4" cols="40" required id="iddescricao" name="descricao"></textarea>
                     </div>
                 </div>
             

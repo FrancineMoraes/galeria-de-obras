@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\GaleriaRequest;
 
 use App\Obra;
 use App\Foto;
@@ -41,7 +42,7 @@ class GaleriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GaleriaRequest $request)
     {
         //cadastra obra
         $obra = new Obra();
@@ -105,7 +106,7 @@ class GaleriaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(GaleriaRequest $request, $id)
     {
         $obra = Obra::with('fotoObra')->findOrFail($id);
         $obra->titulo = $request->titulo;

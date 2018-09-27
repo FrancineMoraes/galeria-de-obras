@@ -70,15 +70,15 @@
 
                     <div class="form-group">
                             <label for="text" class="text"> Nome </label>
-                            <input type="text" name="nome" class="form-control" required>
+                            <input type="text" name="nome" required class="form-control" required>
                         </div>
                     <div class="form-group">
                         <label for="text" class="text"> Seu E-mail </label>
-                        <input type="email" name="email" class="form-control" required>
+                        <input type="email" name="email" required class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label for="text" class="text">Digite sua mensagem: </label>
-                            <textarea class="form-control" name="texto" 
+                            <textarea class="form-control" required name="texto" 
                             rows="6" required></textarea>
                     </div>
 

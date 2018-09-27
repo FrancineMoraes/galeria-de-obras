@@ -61,7 +61,7 @@
                     <div class="form-group">
                         <label for="idbiografia"> Biografia </label>
                         <br>
-                    <textarea id="idbiografia" name="biografia">{{$config->biografia}}</textarea>
+                    <textarea id="idbiografia" required name="biografia">{{$config->biografia}}</textarea>
                     </div>
                 </div>
                 

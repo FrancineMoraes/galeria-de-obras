@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ConfigRequest;
 use App\Config;
 
 class ConfigController extends Controller
@@ -24,7 +25,7 @@ class ConfigController extends Controller
         return view('admin.config.edit', compact('config'));
     }
 
-    public function update(Request $request, $id)
+    public function update(ConfigRequest $request, $id)
     {
         $config = Config::findOrFail($id);
 
